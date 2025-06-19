@@ -250,7 +250,7 @@ const domestic = [
   className="w-full flex justify-center lg:mt-28"
 >
   <Image
-    src="/truck3.png"
+    src="/truck4.png"
     alt="Truck"
     width={900}
     height={800}
