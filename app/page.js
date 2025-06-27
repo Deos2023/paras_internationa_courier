@@ -311,7 +311,7 @@ const domestic = [
               href={brand.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white rounded shadow-sm flex items-center justify-center hover:shadow-md transition"
+              className="p-4 bg-white rounded  flex items-center justify-center hover:shadow-md transition"
             >
               <Image
                 src={brand.src}
@@ -342,7 +342,7 @@ const domestic = [
               href={brand.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white rounded shadow-sm flex items-center justify-center hover:shadow-md transition"
+              className="p-4 bg-white rounded  flex items-center justify-center hover:shadow-md transition"
             >
               <Image
                 src={brand.src}
@@ -358,6 +358,131 @@ const domestic = [
     </div>
   </div>
 </section>
+
+
+
+
+
+
+<section className="py-12 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Delivery Time Options (same as before) */}
+      <div className="bg-white p-6 rounded-lg shadow-sm">
+        <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+          Delivery Time Options
+        </h3>
+        <ul className="space-y-3">
+          <li className="flex items-center">
+            <span className="bg-red-100 text-red-600 p-1 rounded-full mr-3">
+              <Truck className="w-4 h-4" />
+            </span>
+            <span className="font-medium">TDD (Time Definite Delivery):</span>
+            <span className="ml-2 text-gray-600">10:30 AM | 12:00 PM | 2:00 PM</span>
+          </li>
+          <li className="flex items-center">
+            <span className="bg-blue-100 text-blue-600 p-1 rounded-full mr-3">
+              <PackageCheck className="w-4 h-4" />
+            </span>
+            <span className="font-medium">Same Day Delivery</span>
+          </li>
+          <li className="flex items-center">
+            <span className="bg-green-100 text-green-600 p-1 rounded-full mr-3">
+              <WarehouseIcon className="w-4 h-4" />
+            </span>
+            <span className="font-medium">Overnight Delivery</span>
+          </li>
+          <li className="flex items-center">
+            <span className="bg-purple-100 text-purple-600 p-1 rounded-full mr-3">
+              <Truck className="w-4 h-4" />
+            </span>
+            <span className="font-medium">Next Day Delivery</span>
+          </li>
+          <li className="flex items-center">
+            <span className="bg-yellow-100 text-yellow-600 p-1 rounded-full mr-3">
+              <Truck className="w-4 h-4" />
+            </span>
+            <span className="font-medium">Standard LTL Logistics (B2B)</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Enhanced Payment Options with COD Highlight */}
+      <div className="bg-white p-6 rounded-lg shadow-sm border-2 border-red-100 relative">
+        {/* Highlight Badge */}
+        <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+          POPULAR
+        </div>
+        
+        <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+          Payment Options
+        </h3>
+        
+        {/* COD Option - Highlighted */}
+        <div className="mb-6 p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+          <div className="flex items-start">
+            <div className="bg-red-100 text-red-600 p-2 rounded-full mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg text-red-700">COD (Cash on Delivery)</h4>
+              <p className="text-gray-700 mt-1">
+                <span className="font-semibold text-red-600">Fast settlement within 7 days</span> of delivery. 
+                Get your payments quickly with our reliable COD system.
+              </p>
+              <div className="mt-2 flex items-center text-sm text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Payments processed every Tuesday and Friday
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Other Payment Methods */}
+        <div className="space-y-4">
+          <div className="flex items-center">
+            <div className="bg-gray-100 text-gray-600 p-2 rounded-full mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            <span className="font-medium">Credit/Debit Cards</span>
+          </div>
+          <div className="flex items-center">
+            <div className="bg-gray-100 text-gray-600 p-2 rounded-full mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </div>
+            <span className="font-medium">Bank Transfers</span>
+          </div>
+          <div className="flex items-center">
+            <div className="bg-gray-100 text-gray-600 p-2 rounded-full mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span className="font-medium">Digital Wallets</span>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-500 mt-4">
+          *COD payment settlement within 7 days of delivery confirmation
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
 
 
