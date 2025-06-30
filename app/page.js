@@ -10,6 +10,7 @@ import InspirationGrid from './component/InspirationGrid'
 import Static from './component/Static'
 import ReachSection from './component/ReachSec'
 import { BrandBar } from './component/BrandBar'
+import { DeliveryOptionsSlider } from './component/DeliveryOptionsSlider'
 
 const newServices = [
   {
@@ -261,7 +262,7 @@ const domestic = [
         {/* Text */}
         <div  className="w-full max-w-6xl text-center lg:text-left mb-10 lg:mb-0">
           <p className="text-sm font-semibold text-white/80 uppercase">Safe Transportation & Logistics</p>
-          <h1 className="text-3xl sm:text-7xl font-bold leading-tight mt-2 mb-6">
+          <h1 className="text-3xl sm:text-6xl font-bold leading-tight mt-2 mb-6">
             Flexible logistics<br />
             Fast Delivery, &<br />
             secure package
@@ -278,6 +279,9 @@ const domestic = [
             <a href="/about" className="font-medium underline underline-offset-4 decoration-red-500">
               Who we are
             </a>
+          </div>
+          <div className='sm:-mx-20 '>
+            <DeliveryOptionsSlider/>
           </div>
         </div>
       </div>
