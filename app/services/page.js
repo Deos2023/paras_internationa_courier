@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
 import { Truck, Plane, Train, Ship, Package, Warehouse, Clock, Shield } from 'lucide-react'
 import Static from '../component/Static'
+import { DeliveryOptionsSlider } from '../component/DeliveryOptionsSlider'
 
 const services = [
   {
@@ -117,7 +118,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-[77vh] overflow-hidden flex items-center justify-center text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/exp.jpg"
@@ -142,7 +143,11 @@ export default function ServicesPage() {
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
             Comprehensive logistics solutions tailored to your business needs
           </p>
+          <div className='max-w-3xl mx-auto pt-5'>
+            <DeliveryOptionsSlider/>
+          </div>
         </motion.div>
+        
       </section>
 
       {/* Services Grid */}

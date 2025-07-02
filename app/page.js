@@ -280,7 +280,7 @@ const domestic = [
               Who we are
             </a>
           </div>
-          <div className='sm:-mx-20 '>
+          <div className='sm:-mx-20 pt-2  '>
             <DeliveryOptionsSlider/>
           </div>
         </div>

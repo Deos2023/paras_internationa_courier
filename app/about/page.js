@@ -42,7 +42,7 @@ export default function AboutPage() {
     <>
       <div className='text-neutral-700 bg-white'>
         {/* Hero Section */}
-      <section className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-[70vh] overflow-hidden flex items-center justify-center text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero2.jpg"

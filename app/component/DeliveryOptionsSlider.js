@@ -1,79 +1,127 @@
 "use client";
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
-import { Truck, PackageCheck, WarehouseIcon } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { Truck, PackageCheck, Warehouse, Clock, CalendarCheck, Star } from 'lucide-react';
 
 const deliveryOptions = [
   {
-    icon: <Truck className="w-4 h-4" />,
-    bg: "bg-red-100",
+    icon: <Clock className="w-4 h-4" />,
+    bg: "bg-white",
     text: "text-red-600",
-    title: "TDD (Time Definite Delivery)",
-    subtitle: ""
+    border: "border-red-500/30",
+    title: "TDD Delivery",
+    highlight: true,
+    stars: 3,
+    glowColor: "rgba(220, 38, 38, 0.9)" // brighter red
   },
   {
     icon: <PackageCheck className="w-4 h-4" />,
-    bg: "bg-blue-100",
+    bg: "bg-white",
     text: "text-blue-600",
-    title: "Same Day Delivery",
-    subtitle: ""
+    border: "border-blue-500/30",
+    title: "Same Day",
+    highlight: false,
+    stars: 2,
+    glowColor: "rgba(37, 99, 235, 0.9)" // brighter blue
   },
   {
-    icon: <WarehouseIcon className="w-4 h-4" />,
-    bg: "bg-green-100",
+    icon: <Warehouse className="w-4 h-4" />,
+    bg: "bg-white",
     text: "text-green-600",
-    title: "Overnight Delivery",
-    subtitle: ""
+    border: "border-green-500/30",
+    title: "Overnight",
+    highlight: false,
+    stars: 2,
+    glowColor: "rgba(34, 197, 94, 0.9)" // brighter green
   },
   {
-    icon: <Truck className="w-4 h-4" />,
-    bg: "bg-purple-100",
+    icon: <CalendarCheck className="w-4 h-4" />,
+    bg: "bg-white",
     text: "text-purple-600",
-    title: "Next Day Delivery",
-    subtitle: ""
+    border: "border-purple-500/30",
+    title: "Next Day",
+    highlight: false,
+    stars: 1,
+    glowColor: "rgba(168, 85, 247, 0.9)" // brighter purple
   },
   {
     icon: <Truck className="w-4 h-4" />,
-    bg: "bg-yellow-100",
-    text: "text-yellow-600",
-    title: "Standard LTL Logistics (B2B)",
-    subtitle: ""
+    bg: "bg-white",
+    text: "text-amber-600",
+    border: "border-amber-500/30",
+    title: "LTL Logistics",
+    highlight: false,
+    stars: 1,
+    glowColor: "rgba(245, 158, 11, 0.9)" // brighter amber
   }
-]
+];
 
 export function DeliveryOptionsSlider() {
-  // Duplicate the options for seamless infinite scroll
-  const options = [...deliveryOptions, ...deliveryOptions]
+  const options = [...deliveryOptions, ...deliveryOptions];
 
   return (
-    <section className=" py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="overflow-hidden relative">
-          <motion.ul 
-            className="flex gap-20"
-            style={{ width: 'max-content' }}
-            animate={{ x: ['0%', '-50%'] }}
+    <div className="relative overflow-hidden py-2">
+      <motion.ul 
+        className="flex gap-4"
+        style={{ width: 'max-content' }}
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{
+          repeat: Infinity,
+          repeatType: 'loop',
+          duration: 20,
+          ease: 'linear',
+        }}
+      >
+        {options.map((option, idx) => (
+          <motion.li 
+            key={idx} 
+            className={`
+              relative flex items-center px-3 py-2 my-4 min-w-max rounded-lg
+              ${option.bg} ${option.border} border
+              ${option.highlight ? 'ring-2 ring-red-400' : ''}
+            `}
+            whileHover={{ scale: 1.05 }}
+            animate={{
+              boxShadow: [
+                `0 0 5px 1px ${option.glowColor}`,
+                `0 0 10px 6px ${option.glowColor}`,
+                `0 0 5px 1px ${option.glowColor}`
+              ],
+              opacity: [0.9, 1, 0.9]
+            }}
             transition={{
+              duration: 2,
               repeat: Infinity,
-              repeatType: 'loop',
-              duration: 20, // Adjust speed here
-              ease: 'linear',
+              ease: "easeInOut",
+              times: [0, 0.5, 1]
             }}
           >
-            {options.map((option, idx) => (
-              <li key={idx} className="flex bg-white p-2 items-center min-w-max">
-                <span className={`${option.bg} ${option.text} p-1 rounded-full mr-3`}>
-                  {option.icon}
-                </span>
-                <span className="font-semibold text-red-700">{option.title}</span>
-                {option.subtitle && (
-                  <span className="ml-2 text-gray-600">{option.subtitle}</span>
-                )}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
-      </div>
-    </section>
-  )
+            {/* Golden stars with subtle pulse */}
+            <motion.div 
+              className="absolute -top-2 -right-2 flex"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {[...Array(option.stars)].map((_, i) => (
+                <Star 
+                  key={i} 
+                  className="w-3 h-3 fill-yellow-400 text-yellow-400" 
+                />
+              ))}
+            </motion.div>
+            
+            <span className={`${option.text} mr-2`}>
+              {option.icon}
+            </span>
+            <span className={`text-sm font-bold ${option.text}`}>
+              {option.title}
+            </span>
+          </motion.li>
+        ))}
+      </motion.ul>
+    </div>
+  );
 }
